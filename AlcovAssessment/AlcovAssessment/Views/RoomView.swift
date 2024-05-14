@@ -15,18 +15,20 @@ struct RoomView: View {
         NavigationStack{
             VStack{
                 WebImage(url: image)
-                    .frame(width: 300, height: 500)
-                    
+                    .resizable()
+                    .scaledToFit()
+                    //.frame(width: 300, height: 500)
                     .cornerRadius(30)
+                    .padding()
                     .padding(.bottom, 30)
-                    
+                        
                 
                 
                 NavigationLink(destination: ImageView()){
                     Text("Next")
                         .font(.title)
                         .padding()
-                        .padding(.horizontal, 60)
+                        .padding(.horizontal, 80)
                         .background(Color("Button-Disabled"))
                         .foregroundStyle(.black)
                         .cornerRadius(15)

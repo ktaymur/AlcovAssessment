@@ -18,9 +18,8 @@ struct ImageView: View {
         ZStack {
             Color("Background")
                 .ignoresSafeArea()
-            VStack{
-                HStack{
-                    VStack(alignment: .leading){
+            VStack {
+                HStack {
                         Button(action: {
                             presentationMode.wrappedValue
                                 .dismiss()
@@ -28,13 +27,21 @@ struct ImageView: View {
                             Image(systemName: "arrow.backward")
                                 .foregroundColor(Color("Button-On"))
                         })
-                        .navigationBarBackButtonHidden(true)
-                    }
+                        .padding(.leading)
+                    
+                    .navigationBarBackButtonHidden(true)
+                    Spacer()
+                    
                     Text("1 of 5")
                         .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                        .padding(.trailing, 40)
+                    Spacer()
                 }
                 .padding(.bottom, 20)
+                
                 Text("Tell me about your Alcov! Which room would you like to get started with?")
+                    
                     .fontWeight(.bold)
                     .font(.title)
                     .multilineTextAlignment(.center)
@@ -125,9 +132,9 @@ struct TypeView: View {
                             .foregroundStyle(.black)
                     }
                     .frame(width: 90, height: 120)
-                    .padding()
+                    .padding(10)
                     .background(.white)
-                    .cornerRadius(30)
+                    .cornerRadius(25)
                     .shadow(color: .gray, radius: 3, x: 0, y: 2)
                 }
     
@@ -143,8 +150,8 @@ struct TypeView: View {
                             .foregroundStyle(.black)
                     }
                     .frame(width: 90, height: 120)
-                    .padding()
-                    .background(Color("Blue2"))                 .cornerRadius(30)
+                    .padding(10)
+                    .background(Color("Blue2"))                 .cornerRadius(25)
                     .shadow(color: .gray, radius: 3, x: 0, y: 2)
                     .overlay(
                     RoundedRectangle(cornerRadius: 30)
