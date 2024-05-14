@@ -17,11 +17,11 @@ class UserSelectionViewModel: UIViewController, ObservableObject{
     //self.ref = Database.database().reference()
     let db = Firestore.firestore()
     
-    func addUser(selection: String){
-        let user: [String: Any] = [ "selection" : selection]
+    func addUser(user: User){
+        let user: [String: Any] = [ "selection" : user.selection]
         //User(selection: selection)
         
-        db.collection("users").addDocument(data: user){ error in
+        db.collection("users").document("User1").setData(user){ error in
             if let error = error{
                 print("Error adding document")
             } else {
@@ -32,11 +32,11 @@ class UserSelectionViewModel: UIViewController, ObservableObject{
     }
     
     func updateUser(user: User) {
-        let documentId = user.uuid
+        //let documentId = user.uuid
         let updatedUser: [String: Any] = ["selection": user.selection]
         
         
-        db.collection("users").document(documentId).updateData(updatedUser){ error in
+        db.collection("users").document("User1").updateData(updatedUser){ error in
             if let error = error{
                 print("Error updating document")
             }else {

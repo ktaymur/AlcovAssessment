@@ -9,7 +9,7 @@ import Foundation
 
 struct User: Codable {
    
-    let uuid: String
+    //let uuid: String
     var selection: String
 }
 

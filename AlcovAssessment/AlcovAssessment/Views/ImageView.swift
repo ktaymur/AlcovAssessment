@@ -20,6 +20,7 @@ struct ImageView: View {
                 .ignoresSafeArea()
             VStack{
                 HStack{
+                    VStack(alignment: .leading){
                         Button(action: {
                             presentationMode.wrappedValue
                                 .dismiss()
@@ -27,7 +28,8 @@ struct ImageView: View {
                             Image(systemName: "arrow.backward")
                                 .foregroundColor(Color("Button-On"))
                         })
-                    .navigationBarBackButtonHidden(true)
+                        .navigationBarBackButtonHidden(true)
+                    }
                     Text("1 of 5")
                         .fontWeight(.bold)
                 }
@@ -45,28 +47,28 @@ struct ImageView: View {
                 HStack{
                     Button(action: {
                         selection = "bed"
-                        if hasSelection == false{
-                            vm.addUser(selection: selection)
+                        if hasSelection == false {
+                            vm.addUser(user: User(selection: selection))
                         } else{
-                            //vm.updateUser()
+                            vm.updateUser(user: User(selection: selection))
                         }
                         hasSelection = true
                         }, label: {TypeView(type: "Bedroom", image: "bed.double", selection: selection == "bed")})
                     Button(action: {
                         selection = "living-space"
                         if hasSelection == false{
-                            vm.addUser(selection: selection)
+                            vm.addUser(user: User(selection: selection))
                         } else {
-                            //vm.updateUser(user: User(uuid: <#T##String#>, selection: <#T##String#>))
+                            vm.updateUser(user: User(selection: selection))
                         }
                         hasSelection = true
                     }, label: {TypeView(type: "Living Space", image: "chair.lounge", selection: selection == "living-space")})
                     Button(action: {
                         selection = "workspace"
                         if hasSelection == false{
-                            vm.addUser(selection: selection)
+                            vm.addUser(user: User(selection: selection))
                         } else {
-                            //vm.updateUser()
+                            vm.updateUser(user: User(selection: selection))
                         }
                         hasSelection = true
                     }, label: {TypeView(type: "Workspace", image: "laptopcomputer", selection: selection == "workspace")})
