@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct User: Codable {
+   
+    let uuid: String
+    var selection: String
+}
+
